@@ -9,6 +9,9 @@ import {
   ApartmentOutlined,
   FileTextOutlined,
   UploadOutlined,
+  ExperimentOutlined,
+  TableOutlined,
+  CodeOutlined,
 } from '@ant-design/icons';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -20,6 +23,14 @@ const Sidebar: React.FC<{ collapsed: boolean }> = ({ collapsed }) => {
 
   // Định nghĩa menu items
   const menuItems = [
+    {
+      key: '/demo',
+      icon: <ExperimentOutlined />,
+      label: 'Demo Center',
+    },
+    {
+      type: 'divider',
+    },
     {
       key: '/dashboard',
       icon: <DashboardOutlined />,
@@ -64,6 +75,31 @@ const Sidebar: React.FC<{ collapsed: boolean }> = ({ collapsed }) => {
       key: '/upload',
       icon: <UploadOutlined />,
       label: 'Upload file',
+    },
+    {
+      type: 'divider',
+    },
+    {
+      key: 'demo-group',
+      icon: <ExperimentOutlined />,
+      label: 'Demo Features',
+      children: [
+        {
+          key: '/career-path-tracking',
+          icon: <RiseOutlined />,
+          label: 'Career Path Tracking',
+        },
+        {
+          key: '/test-crud',
+          icon: <CodeOutlined />,
+          label: 'Test CRUD',
+        },
+        {
+          key: '/test-pagination',
+          icon: <TableOutlined />,
+          label: 'Test Pagination',
+        },
+      ],
     },
     {
       key: '/settings',

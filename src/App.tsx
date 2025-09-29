@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ConfigProvider } from 'antd';
 import locale from 'antd/locale/vi_VN';
@@ -18,6 +17,10 @@ import DevelopmentMatrixDetail from './pages/DevelopmentMatrixDetail';
 import CareerRoadmap from './pages/CareerRoadmap';
 import CareerRoadmapDetail from './pages/CareerRoadmapDetail';
 import JobComparison from './pages/JobComparison';
+import TestCRUD from './pages/TestCRUD';
+import TestPagination from './pages/TestPagination';
+import CareerPathTracking from './pages/CareerPathTracking';
+import Demo from './pages/Demo';
 
 // Custom theme cho Ant Design
 const theme = {
@@ -63,8 +66,16 @@ function App() {
       <Router>
         <MainLayout>
           <Routes>
-            <Route path="/" element={<Navigate to="/dashboard" replace />} />
+            <Route path="/" element={<Navigate to="/demo" replace />} />
+            <Route path="/demo" element={<Demo />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            
+            {/* Demo Routes */}
+            <Route path="/career-path-tracking" element={<CareerPathTracking />} />
+            <Route path="/test-crud" element={<TestCRUD />} />
+            <Route path="/test-pagination" element={<TestPagination />} />
+            
+            {/* Original Routes */}
             <Route path="/employees" element={<Employees />} />
             <Route path="/employees/:id" element={<EmployeeView />} />
             <Route path="/career-paths" element={<CareerPaths />} />
