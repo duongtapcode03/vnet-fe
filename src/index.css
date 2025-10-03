@@ -324,3 +324,119 @@ body {
     border-radius: 12px;
   }
 }
+
+/* Override Tailwind CSS Preflight button reset */
+button, [type='button'], [type='reset'], [type='submit'] {
+  -webkit-appearance: button;
+}
+
+/* Ensure Ant Design buttons have proper background */
+.ant-btn-primary {
+  background-color: #ef4444 !important;
+  color: #ffffff !important;
+  border-color: #ef4444 !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #fc746f !important;
+  color: #ffffff !important;
+  border-color: #fc746f !important;
+}
+
+.ant-btn-primary:focus {
+  background-color: #ef4444 !important;
+  color: #ffffff !important;
+  border-color: #ef4444 !important;
+}
+
+.ant-btn-primary:active {
+  background-color: #dc2626 !important;
+  color: #ffffff !important;
+  border-color: #dc2626 !important;
+}
+
+/* High specificity override for all button types */
+html body button.ant-btn-primary,
+html body [type='button'].ant-btn-primary,
+html body [type='reset'].ant-btn-primary,
+html body [type='submit'].ant-btn-primary {
+  background-color: #ef4444 !important;
+  color: #ffffff !important;
+  border-color: #ef4444 !important;
+}
+
+html body button.ant-btn-primary:hover,
+html body [type='button'].ant-btn-primary:hover,
+html body [type='reset'].ant-btn-primary:hover,
+html body [type='submit'].ant-btn-primary:hover {
+  background-color: #fc746f !important;
+  color: #ffffff !important;
+  border-color: #fc746f !important;
+}
+
+/* Breadcrumb styles */
+.ant-breadcrumb {
+  font-size: 14px;
+}
+
+.ant-breadcrumb-link {
+  color: #6b7280 !important;
+  transition: color 0.2s ease;
+}
+
+.ant-breadcrumb-link:hover {
+  color: #ef4444 !important;
+}
+
+.ant-breadcrumb-separator {
+  color: #d1d5db !important;
+}
+
+.ant-breadcrumb > span:last-child .ant-breadcrumb-link {
+  color: #374151 !important;
+  font-weight: 500;
+}
+
+/* Hierarchical CRUD specific styles */
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ant-tree .ant-tree-node-content-wrapper {
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.ant-tree .ant-tree-node-content-wrapper:hover {
+  background-color: #f0f9ff;
+}
+
+.ant-tree .ant-tree-node-content-wrapper.ant-tree-node-selected {
+  background-color: #dbeafe !important;
+  border: 1px solid #3b82f6;
+}
+
+.ant-tree .ant-tree-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modern-card .ant-card-body {
+  padding: 20px;
+}
+
+.modern-card .ant-card-head {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.modern-card .ant-card-head-title {
+  font-weight: 600;
+  font-size: 16px;
+}

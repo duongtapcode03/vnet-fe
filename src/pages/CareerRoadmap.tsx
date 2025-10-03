@@ -169,7 +169,7 @@ const CareerRoadmap: React.FC = () => {
             <Search
               placeholder="Tìm kiếm theo tên nghề hoặc mã nghề"
               allowClear
-              enterButton={<SearchOutlined />}
+              enterButton={<Button type="primary" icon={<SearchOutlined />}>Tìm kiếm</Button>}
               size="middle"
               onSearch={setSearchText}
               onChange={e => setSearchText(e.target.value)}

@@ -278,7 +278,7 @@ const DevelopmentMatrix: React.FC = () => {
             <Search
               placeholder="Tìm kiếm theo tên nhân viên, mã NV hoặc chuyên môn"
               allowClear
-              enterButton={<SearchOutlined />}
+              enterButton={<Button type="primary" icon={<SearchOutlined />}>Tìm kiếm</Button>}
               size="middle"
               onSearch={setSearchText}
               onChange={e => setSearchText(e.target.value)}

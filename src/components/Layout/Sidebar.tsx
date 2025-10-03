@@ -12,6 +12,12 @@ import {
   ExperimentOutlined,
   TableOutlined,
   CodeOutlined,
+  BranchesOutlined,
+  NodeIndexOutlined,
+  SwapOutlined,
+  EyeOutlined,
+  ProjectOutlined,
+  FundProjectionScreenOutlined,
 } from '@ant-design/icons';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -29,7 +35,7 @@ const Sidebar: React.FC<{ collapsed: boolean }> = ({ collapsed }) => {
       label: 'Demo Center',
     },
     {
-      type: 'divider',
+      type: 'divider' as const,
     },
     {
       key: '/dashboard',
@@ -37,39 +43,70 @@ const Sidebar: React.FC<{ collapsed: boolean }> = ({ collapsed }) => {
       label: 'Dashboard',
     },
     {
-      key: '/employees',
-      icon: <UserOutlined />,
-      label: 'Quản lý nhân viên',
+      key: 'hr-management',
+      icon: <TeamOutlined />,
+      label: 'Quản lý nhân sự',
+      children: [
+        {
+          key: '/employees',
+          icon: <UserOutlined />,
+          label: 'Quản lý nhân viên',
+        },
+        {
+          key: '/departments',
+          icon: <ApartmentOutlined />,
+          label: 'Phòng ban',
+        },
+      ],
     },
     {
-      key: '/career-paths',
+      key: 'career-development',
       icon: <RiseOutlined />,
-      label: 'Lộ trình sự nghiệp',
+      label: 'Phát triển nghề nghiệp',
+      children: [
+        {
+          key: '/career-paths',
+          icon: <BranchesOutlined />,
+          label: 'Lộ trình sự nghiệp',
+        },
+        {
+          key: '/personal-tracking',
+          icon: <ProjectOutlined />,
+          label: 'Lộ trình cá nhân',
+        },
+        {
+          key: '/career-roadmap',
+          icon: <FileTextOutlined />,
+          label: 'Lộ trình nghề nghiệp',
+        },
+        {
+          key: '/job-comparison',
+          icon: <SwapOutlined />,
+          label: 'So sánh công việc',
+        },
+      ],
     },
     {
-      key: '/personal-tracking',
-      icon: <RiseOutlined />,
-      label: 'Lộ trình cá nhân',
-    },
-    {
-      key: '/career-roadmap',
-      icon: <FileTextOutlined />,
-      label: 'Lộ trình nghề nghiệp',
-    },
-    {
-      key: '/development-matrix',
-      icon: <FileTextOutlined />,
-      label: 'Ma trận phát triển cá nhân',
-    },
-    {
-      key: '/career-matrix',
-      icon: <FileTextOutlined />,
+      key: 'matrix-management',
+      icon: <FundProjectionScreenOutlined />,
       label: 'Ma trận quản lý',
+      children: [
+        {
+          key: '/development-matrix',
+          icon: <NodeIndexOutlined />,
+          label: 'Ma trận phát triển cá nhân',
+        },
+        {
+          key: '/career-matrix',
+          icon: <TableOutlined />,
+          label: 'Ma trận quản lý nghề nghiệp',
+        },
+      ],
     },
     {
-      key: '/departments',
-      icon: <ApartmentOutlined />,
-      label: 'Phòng ban',
+      key: '/hierarchical-crud',
+      icon: <BranchesOutlined />,
+      label: 'Quản lý cây phân cấp',
     },
     {
       key: '/upload',
@@ -77,16 +114,16 @@ const Sidebar: React.FC<{ collapsed: boolean }> = ({ collapsed }) => {
       label: 'Upload file',
     },
     {
-      type: 'divider',
+      type: 'divider' as const,
     },
     {
-      key: 'demo-group',
+      key: 'demo-features',
       icon: <ExperimentOutlined />,
       label: 'Demo Features',
       children: [
         {
           key: '/career-path-tracking',
-          icon: <RiseOutlined />,
+          icon: <EyeOutlined />,
           label: 'Career Path Tracking',
         },
         {
@@ -98,6 +135,11 @@ const Sidebar: React.FC<{ collapsed: boolean }> = ({ collapsed }) => {
           key: '/test-pagination',
           icon: <TableOutlined />,
           label: 'Test Pagination',
+        },
+        {
+          key: '/unit-tree-crud',
+          icon: <BranchesOutlined />,
+          label: 'Unit Tree CRUD',
         },
       ],
     },

@@ -20,6 +20,8 @@ import JobComparison from './pages/JobComparison';
 import TestCRUD from './pages/TestCRUD';
 import TestPagination from './pages/TestPagination';
 import CareerPathTracking from './pages/CareerPathTracking';
+import UnitTreeCRUD from './pages/UnitTreeCRUD';
+import HierarchicalCRUD from './components/HierarchicalCRUD';
 import Demo from './pages/Demo';
 
 // Custom theme cho Ant Design
@@ -44,6 +46,8 @@ const theme = {
       boxShadowTertiary: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
     },
     Button: {
+      colorPrimary: '#ef4444',
+      colorPrimaryHover: '#fc746f',
       borderRadius: 12,
       controlHeight: 40,
       fontWeight: 600,
@@ -70,26 +74,36 @@ function App() {
             <Route path="/demo" element={<Demo />} />
             <Route path="/dashboard" element={<Dashboard />} />
             
-            {/* Demo Routes */}
-            <Route path="/career-path-tracking" element={<CareerPathTracking />} />
-            <Route path="/test-crud" element={<TestCRUD />} />
-            <Route path="/test-pagination" element={<TestPagination />} />
-            
-            {/* Original Routes */}
+            {/* HR Management Routes */}
             <Route path="/employees" element={<Employees />} />
             <Route path="/employees/:id" element={<EmployeeView />} />
+            <Route path="/departments" element={<Departments />} />
+            
+            {/* Career Development Routes */}
             <Route path="/career-paths" element={<CareerPaths />} />
             <Route path="/personal-tracking" element={<PersonalTracking />} />
             <Route path="/personal-tracking/:employeeId" element={<PersonalTrackingDetail />} />
             <Route path="/career-roadmap" element={<CareerRoadmap />} />
             <Route path="/career-roadmap/:professionId" element={<CareerRoadmapDetail />} />
             <Route path="/job-comparison" element={<JobComparison />} />
+            
+            {/* Matrix Management Routes */}
             <Route path="/development-matrix" element={<DevelopmentMatrix />} />
             <Route path="/development-matrix/:employeeId" element={<DevelopmentMatrixDetail />} />
             <Route path="/career-matrix" element={<CareerMatrix />} />
-            <Route path="/departments" element={<Departments />} />
+            
+            {/* Hierarchical CRUD */}
+            <Route path="/hierarchical-crud" element={<HierarchicalCRUD />} />
+            
+            {/* Utility Routes */}
             <Route path="/upload" element={<Upload />} />
             <Route path="/settings" element={<Settings />} />
+            
+            {/* Demo Features */}
+            <Route path="/career-path-tracking" element={<CareerPathTracking />} />
+            <Route path="/test-crud" element={<TestCRUD />} />
+            <Route path="/test-pagination" element={<TestPagination />} />
+            <Route path="/unit-tree-crud" element={<UnitTreeCRUD />} />
           </Routes>
         </MainLayout>
       </Router>

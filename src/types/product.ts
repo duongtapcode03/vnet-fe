@@ -1,13 +1,3 @@
-    export interface Product {
-    id: string;
-    name: string;
-    category: string;
-    price: number;
-    createdAt: number;
-    cateId: number;
-    cateName: string;
-}
-
 export interface CreateProductRequest {
     name: string;
     category: string;

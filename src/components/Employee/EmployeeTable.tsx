@@ -261,7 +261,7 @@ const EmployeeTable: React.FC = () => {
             <Search
               placeholder="Tìm kiếm theo tên, mã NV, email hoặc phòng ban"
               allowClear
-              enterButton={<SearchOutlined />}
+              enterButton={<Button type="primary" icon={<SearchOutlined />}>Tìm kiếm</Button>}
               size="middle"
               onSearch={setSearchText}
               onChange={e => setSearchText(e.target.value)}

@@ -318,3 +318,88 @@ export interface ComparisonResult {
   position2Details: string[];
   recommendation: string;
 }
+
+// Category and Product types based on API response
+export interface Category {
+  id: number;
+  categoryCode: string;
+  categoryName: string;
+  description: string;
+  editable: string;
+  parentId: number | string | null;
+  isDeleted: string;
+  parentName: string | null;
+  children: Category[] | null;
+}
+
+export interface Product {
+  id: number;
+  productCode: string;
+  productName: string;
+  description: string;
+  price: number;
+  categoryId: number;
+  categoryName: string;
+  isActive: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface CategoryCreateRequest {
+  categoryCode: string;
+  categoryName: string;
+  description: string;
+  parentId?: number | null;
+}
+
+export interface CategoryUpdateRequest extends CategoryCreateRequest {
+  id: number;
+}
+
+export interface ProductCreateRequest {
+  productCode: string;
+  productName: string;
+  description: string;
+  price: number;
+  categoryId: number;
+}
+
+export interface ProductUpdateRequest extends ProductCreateRequest {
+  id: number;
+}
+
+export interface ApiResponse<T> {
+  operator: string;
+  code: string;
+  message: string;
+  data: T;
+}
+
+export interface PaginatedResponse<T> {
+  content: T[];
+  pageable: {
+    sort: {
+      sorted: boolean;
+      unsorted: boolean;
+      empty: boolean;
+    };
+    offset: number;
+    pageNumber: number;
+    pageSize: number;
+    paged: boolean;
+    unpaged: boolean;
+  };
+  last: boolean;
+  totalElements: number;
+  totalPages: number;
+  number: number;
+  sort: {
+    sorted: boolean;
+    unsorted: boolean;
+    empty: boolean;
+  };
+  size: number;
+  first: boolean;
+  numberOfElements: number;
+  empty: boolean;
+}

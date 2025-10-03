@@ -8,6 +8,7 @@ import {
   SettingOutlined,
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
+import Breadcrumb from './Breadcrumb';
 
 const { Header: AntHeader } = Layout;
 const { Text } = Typography;
@@ -56,52 +57,58 @@ const Header: React.FC<HeaderProps> = ({ collapsed, onToggle }) => {
   };
 
   return (
-    <AntHeader 
-      className="modern-header"
-      style={{ 
-        padding: 0, 
-        background: '#fff',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        borderBottom: '1px solid #e5e5e5',
-        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-      }}
-    >
-      <Button
-        type="text"
-        icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-        onClick={onToggle}
-        style={{
-          fontSize: '16px',
-          width: 64,
-          height: 64,
-          borderRadius: '12px',
-          transition: 'all 0.3s ease',
+    <>
+      <AntHeader 
+        className="modern-header"
+        style={{ 
+          padding: 0, 
+          background: '#fff',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          borderBottom: '1px solid #e5e5e5',
+          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
         }}
-        className="hover:bg-red-50"
-      />
-      
-      <Space style={{ marginRight: 24 }}>
-        <Text style={{ fontWeight: 500, color: '#374151' }}>Xin chào, Admin</Text>
-        <Dropdown 
-          menu={{ 
-            items: userMenuItems,
-            onClick: handleUserMenuClick 
-          }} 
-          trigger={['click']}
-        >
-          <Avatar 
-            style={{ 
-              background: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)', 
-              cursor: 'pointer',
-              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-            }} 
-            icon={<UserOutlined />} 
+      >
+        <div style={{ display: 'flex', alignItems: 'center', flex: 1 }}>
+          <Button
+            type="text"
+            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+            onClick={onToggle}
+            style={{
+              fontSize: '16px',
+              width: 64,
+              height: 64,
+              borderRadius: '12px',
+              transition: 'all 0.3s ease',
+            }}
+            className="hover:bg-red-50"
           />
-        </Dropdown>
-      </Space>
-    </AntHeader>
+          
+          <Breadcrumb />
+        </div>
+        
+        <Space style={{ marginRight: 24 }}>
+          <Text style={{ fontWeight: 500, color: '#374151' }}>Xin chào, Admin</Text>
+          <Dropdown 
+            menu={{ 
+              items: userMenuItems,
+              onClick: handleUserMenuClick 
+            }} 
+            trigger={['click']}
+          >
+            <Avatar 
+              style={{ 
+                background: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)', 
+                cursor: 'pointer',
+                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+              }} 
+              icon={<UserOutlined />} 
+            />
+          </Dropdown>
+        </Space>
+      </AntHeader>
+    </>
   );
 };
 

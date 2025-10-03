@@ -288,7 +288,7 @@ const PersonalTracking: React.FC = () => {
             <Search
               placeholder="Tìm kiếm theo tên nhân viên hoặc mã NV"
               allowClear
-              enterButton={<SearchOutlined />}
+              enterButton={<Button type="primary" icon={<SearchOutlined />}>Tìm kiếm</Button>}
               size="middle"
               onSearch={setSearchText}
               onChange={e => setSearchText(e.target.value)}
